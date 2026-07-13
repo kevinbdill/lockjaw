@@ -27,6 +27,12 @@ SHA-256 published in the release notes.
 Because the executable is not yet code-signed, Windows SmartScreen shows an
 "unknown publisher" warning on first run: click **More info → Run anyway**.
 
+**By using Lockjaw you accept the [Terms of Use & Disclaimer](DISCLAIMER.md).**
+In short: the software is provided as-is with no warranty; there is **no
+passphrase recovery of any kind** — a lost passphrase means permanently lost
+data — and the authors are not liable for lost data, compromised passphrases,
+or any damages arising from use. Keep independent backups.
+
 ## Quick start (GUI)
 
 1. Double-click `Lockjaw.exe`.
@@ -150,6 +156,7 @@ test-vectors/      compatibility-vector policy for frozen format versions
 - [Building & Development](docs/BUILDING.md) — developer setup and release process
 - [Container format](docs/FORMAT.md)
 - [Design spec](docs/SPEC.md) and [M1 design review](docs/SPEC_REVIEW.md)
+- [Terms of Use & Disclaimer](DISCLAIMER.md)
 - [Security policy and release gates](SECURITY.md)
 - [Compatibility-vector policy](test-vectors/README.md)
 - [Changelog](CHANGELOG.md)

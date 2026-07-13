@@ -140,7 +140,9 @@ attempt), but it cannot rescue a weak secret. Use a long passphrase — four or
 more random words, or 16+ mixed characters. Avoid anything guessable from
 your life. **There is no recovery mechanism: a lost passphrase means the data
 is gone.** That is a feature, not a bug — it means nobody else has a way in
-either.
+either. The authors are not responsible for lost or compromised passphrases
+or the resulting data loss — see the
+[Terms of Use & Disclaimer](../DISCLAIMER.md).
 
 ## What Lockjaw protects — and what it doesn't
 
