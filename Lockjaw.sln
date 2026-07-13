@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LockjawCli", "src\LockjawCl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LockjawCore.Tests", "tests\LockjawCore.Tests\LockjawCore.Tests.csproj", "{66D5E68C-2690-42EE-A5C8-D9D669EF9237}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CB878FDC-2D5E-4C79-9A2D-842CE85C8A06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LockjawApp", "src\LockjawApp\LockjawApp.csproj", "{E407B3CD-D4F8-4C6D-9CDE-CF330ED17B54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +30,12 @@ Global
 		{66D5E68C-2690-42EE-A5C8-D9D669EF9237}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66D5E68C-2690-42EE-A5C8-D9D669EF9237}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66D5E68C-2690-42EE-A5C8-D9D669EF9237}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E407B3CD-D4F8-4C6D-9CDE-CF330ED17B54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E407B3CD-D4F8-4C6D-9CDE-CF330ED17B54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E407B3CD-D4F8-4C6D-9CDE-CF330ED17B54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E407B3CD-D4F8-4C6D-9CDE-CF330ED17B54}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E407B3CD-D4F8-4C6D-9CDE-CF330ED17B54} = {CB878FDC-2D5E-4C79-9A2D-842CE85C8A06}
 	EndGlobalSection
 EndGlobal
-

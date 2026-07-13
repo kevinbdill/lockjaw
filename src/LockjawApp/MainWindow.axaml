@@ -1,0 +1,88 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Lockjaw.App.MainWindow"
+        Title="Lockjaw"
+        Width="560" Height="640"
+        MinWidth="480" MinHeight="560"
+        WindowStartupLocation="CenterScreen"
+        Background="#0f1419"
+        DragDrop.AllowDrop="True">
+
+  <Window.Styles>
+    <Style Selector="TextBlock.muted">
+      <Setter Property="Foreground" Value="#8a97a1"/>
+    </Style>
+    <Style Selector="Button.primary">
+      <Setter Property="Background" Value="#c9a227"/>
+      <Setter Property="Foreground" Value="#111111"/>
+      <Setter Property="FontWeight" Value="SemiBold"/>
+      <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    </Style>
+    <Style Selector="Button.primary:pointerover /template/ ContentPresenter">
+      <Setter Property="Background" Value="#dbb43a"/>
+      <Setter Property="TextBlock.Foreground" Value="#111111"/>
+    </Style>
+    <Style Selector="TextBox">
+      <Setter Property="Background" Value="#161d24"/>
+      <Setter Property="BorderBrush" Value="#26313b"/>
+    </Style>
+  </Window.Styles>
+
+  <DockPanel Margin="24">
+
+    <!-- Footer status -->
+    <StackPanel DockPanel.Dock="Bottom" Spacing="8" Margin="0,16,0,0">
+      <ProgressBar x:Name="Progress" IsIndeterminate="True" IsVisible="False" Foreground="#c9a227"/>
+      <TextBlock x:Name="StatusText" Classes="muted" TextWrapping="Wrap" FontSize="13"/>
+    </StackPanel>
+
+    <StackPanel Spacing="16">
+
+      <!-- Header -->
+      <StackPanel Orientation="Horizontal" Spacing="10">
+        <TextBlock Text="🔒" FontSize="22" VerticalAlignment="Center"/>
+        <TextBlock Text="Lockjaw" FontSize="22" FontWeight="Bold" Foreground="#dce3e8" VerticalAlignment="Center"/>
+        <TextBlock Text="file encryption" Classes="muted" FontSize="13" VerticalAlignment="Bottom" Margin="0,0,0,3"/>
+      </StackPanel>
+
+      <!-- Drop zone -->
+      <Border x:Name="DropZone" Height="150" CornerRadius="8"
+              BorderBrush="#26313b" BorderThickness="2" Background="#161d24">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="6">
+          <TextBlock x:Name="DropTitle" Text="Drop files or folders here"
+                     FontSize="16" Foreground="#dce3e8" HorizontalAlignment="Center"/>
+          <TextBlock x:Name="DropSubtitle" Text="or click to browse — drop a .lockjaw file to decrypt"
+                     Classes="muted" FontSize="12.5" HorizontalAlignment="Center"/>
+        </StackPanel>
+      </Border>
+
+      <!-- Selected items -->
+      <Border x:Name="SelectionPanel" IsVisible="False" Background="#161d24"
+              CornerRadius="8" BorderBrush="#26313b" BorderThickness="1" Padding="14,10">
+        <DockPanel>
+          <Button x:Name="ClearButton" DockPanel.Dock="Right" Content="✕"
+                  Background="Transparent" Foreground="#8a97a1" Padding="6,2"
+                  VerticalAlignment="Top" Click="OnClearClicked"/>
+          <StackPanel Spacing="2">
+            <TextBlock x:Name="SelectionTitle" Foreground="#dce3e8" FontWeight="SemiBold" FontSize="13.5"/>
+            <TextBlock x:Name="SelectionDetail" Classes="muted" FontSize="12.5" TextWrapping="Wrap"/>
+          </StackPanel>
+        </DockPanel>
+      </Border>
+
+      <!-- Passphrase -->
+      <StackPanel Spacing="10">
+        <TextBox x:Name="Passphrase" PasswordChar="●" Watermark="Passphrase"
+                 RevealPassword="False" FontSize="14"/>
+        <TextBox x:Name="PassphraseConfirm" PasswordChar="●" Watermark="Confirm passphrase (encrypting)"
+                 FontSize="14"/>
+      </StackPanel>
+
+      <!-- Action -->
+      <Button x:Name="ActionButton" Classes="primary" Height="44" FontSize="15"
+              HorizontalAlignment="Stretch" Content="Encrypt"
+              Click="OnActionClicked" IsEnabled="False"/>
+
+    </StackPanel>
+  </DockPanel>
+</Window>

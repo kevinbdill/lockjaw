@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-x64</RuntimeIdentifier>
+    <AssemblyName>Lockjaw</AssemblyName>
+    <RootNamespace>Lockjaw.App</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Version>0.2.0</Version>
+    <ApplicationIcon>Assets\lockjaw.ico</ApplicationIcon>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.3.2" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.3.2" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.2" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LockjawCore\LockjawCore.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+</Project>
