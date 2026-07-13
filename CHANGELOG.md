@@ -3,6 +3,15 @@
 All notable changes to Lockjaw. Format follows [Keep a Changelog](https://keepachangelog.com/);
 versions follow [SemVer](https://semver.org/) (0.x = pre-audit development).
 
+## [0.2.1] — 2026-07-13
+
+### Fixed
+- **GUI failed to open on Windows.** v0.2.0 was published as a compressed
+  single-file executable; the Avalonia GUI crashes in the bundle host at
+  startup when packaged that way. v0.2.1 ships the publish folder instead —
+  unzip and run `Lockjaw.exe` from inside the folder (keep the files
+  together).
+
 ## [0.2.0] — 2026-07-13
 
 ### Added
@@ -14,10 +23,12 @@ versions follow [SemVer](https://semver.org/) (0.x = pre-audit development).
 - Application icon.
 
 ### Notes
-- Single self-contained `Lockjaw.exe` (~44 MB), no .NET install required.
+- No .NET install required (self-contained).
 - Known limitation: the click-to-browse dialog selects files only; use
   drag-and-drop for folders.
 - Still unsigned — SmartScreen "unknown publisher" warning is expected.
+- **This release's single-file packaging was broken** (GUI would not open);
+  superseded same day by 0.2.1.
 
 ## [0.1.0] — 2026-07-13
 

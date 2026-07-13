@@ -20,8 +20,9 @@ no cloud, no telemetry, no network code at all.
 
 Grab the latest Windows build from the
 [Releases page](https://github.com/kevinbdill/lockjaw/releases/latest).
-It is a single self-contained `Lockjaw.exe` — nothing to install, no .NET
-runtime required. Verify the SHA-256 published in the release notes.
+Unzip the folder anywhere and run `Lockjaw.exe` from inside it (keep the
+files together) — nothing to install, no .NET runtime required. Verify the
+SHA-256 published in the release notes.
 
 Because the executable is not yet code-signed, Windows SmartScreen shows an
 "unknown publisher" warning on first run: click **More info → Run anyway**.
@@ -109,10 +110,9 @@ cross-compiles fine from Linux).
 dotnet restore
 dotnet test -c Release          # 6 unit tests must pass
 
-# Windows GUI (single-file exe):
-dotnet publish src/LockjawApp -c Release -r win-x64 --self-contained \
-  -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true \
-  -p:EnableCompressionInSingleFile=true
+# Windows GUI (folder publish — do NOT use single-file for the GUI,
+# it breaks Avalonia at startup; see docs/BUILDING.md):
+dotnet publish src/LockjawApp -c Release -r win-x64 --self-contained
 
 # Windows CLI:
 dotnet publish src/LockjawCli -c Release -r win-x64 --self-contained \

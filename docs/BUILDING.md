@@ -60,14 +60,14 @@ dotnet publish src/LockjawCli -c Release -r linux-x64 --self-contained -o /tmp/l
 
 ## Publishing Windows binaries
 
-Both front-ends publish as self-contained single-file executables — the user
-needs no .NET runtime:
+Both front-ends publish self-contained — the user needs no .NET runtime:
 
 ```bash
-# GUI
-dotnet publish src/LockjawApp -c Release -r win-x64 --self-contained \
-  -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true \
-  -p:EnableCompressionInSingleFile=true -o out/win-gui
+# GUI — folder publish. WARNING: do NOT add -p:PublishSingleFile=true here.
+# Single-file publish crashes the Avalonia GUI at startup on Windows
+# (v0.2.0 shipped that way and failed to open; fixed in v0.2.1 by shipping
+# the publish folder). Ship the whole folder as the release zip.
+dotnet publish src/LockjawApp -c Release -r win-x64 --self-contained -o out/win-gui
 
 # CLI
 dotnet publish src/LockjawCli -c Release -r win-x64 --self-contained \
@@ -76,8 +76,10 @@ dotnet publish src/LockjawCli -c Release -r win-x64 --self-contained \
 ```
 
 The Windows exe **cross-compiles from Linux** without issue (the GUI is
-Avalonia, not WPF, precisely so the whole project builds anywhere). Result is
-a single `Lockjaw.exe` (~35–45 MB; the size is the embedded .NET runtime).
+Avalonia, not WPF, precisely so the whole project builds anywhere). The CLI
+publishes as a single ~35 MB `Lockjaw.exe`; the GUI publishes as a folder
+(~97 MB, zips to ~44 MB) whose `Lockjaw.exe` must stay with its neighbors.
+Delete the `*.pdb` files from the GUI folder before zipping a release.
 
 ## Testing philosophy
 
