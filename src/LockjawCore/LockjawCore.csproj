@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Lockjaw.Core</RootNamespace>
+    <AssemblyName>LockjawCore</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LibSodium.Net" Version="0.16.0-alpha" />
+  </ItemGroup>
+</Project>
+
